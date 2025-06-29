@@ -85,9 +85,9 @@ function openPhone() {
 // Typing Animation
 const typingTexts = [
     "Data Analyst",
-    "Python Developer", 
-    "Machine Learning Enthusiast",
-    "Data Visualization Expert"
+    "Python & C Programming", 
+    "Machine Learning",
+    "Data Visualization"
 ];
 
 let textIndex = 0;
@@ -99,6 +99,8 @@ const deletingSpeed = 50;
 const pauseTime = 2000;
 
 function typeEffect() {
+    if (!typingElement) return;
+    
     const currentText = typingTexts[textIndex];
     
     if (isDeleting) {
@@ -170,7 +172,7 @@ document.querySelectorAll('section').forEach(section => {
 });
 
 // Observe individual cards and elements
-document.querySelectorAll('.education-card, .timeline-item, .skill-category, .achievement-card').forEach(element => {
+document.querySelectorAll('.glow-card, .timeline-item, .skill-category, .achievement-card').forEach(element => {
     element.classList.add('fade-in');
     observer.observe(element);
 });
@@ -181,7 +183,7 @@ window.addEventListener('scroll', () => {
     const floatingElements = document.querySelectorAll('.floating-element');
     
     floatingElements.forEach(element => {
-        const speed = element.getAttribute('data-speed');
+        const speed = element.getAttribute('data-speed') || 1;
         const yPos = -(scrolled * speed / 10);
         element.style.transform = `translateY(${yPos}px) rotate(${scrolled * 0.1}deg)`;
     });
@@ -193,8 +195,10 @@ window.addEventListener('load', () => {
     
     // Animate hero elements
     setTimeout(() => {
-        document.querySelector('.hero-text').classList.add('slide-in-left', 'visible');
-        document.querySelector('.hero-image').classList.add('slide-in-right', 'visible');
+        const heroText = document.querySelector('.hero-text');
+        const heroImage = document.querySelector('.hero-image');
+        if (heroText) heroText.classList.add('slide-in-left', 'visible');
+        if (heroImage) heroImage.classList.add('slide-in-right', 'visible');
     }, 300);
 });
 
@@ -204,16 +208,19 @@ function animateCounters() {
     
     counters.forEach(counter => {
         const target = counter.innerText;
-        if (!isNaN(target)) {
+        const numericTarget = parseInt(target.replace(/\D/g, ''));
+        
+        if (!isNaN(numericTarget)) {
             let current = 0;
-            const increment = target / 100;
+            const increment = numericTarget / 100;
             const timer = setInterval(() => {
                 current += increment;
-                if (current >= target) {
+                if (current >= numericTarget) {
                     counter.innerText = target;
                     clearInterval(timer);
                 } else {
-                    counter.innerText = Math.floor(current);
+                    const currentText = target.replace(/\d+/, Math.floor(current));
+                    counter.innerText = currentText;
                 }
             }, 20);
         }
@@ -230,7 +237,10 @@ const heroObserver = new IntersectionObserver((entries) => {
     });
 });
 
-heroObserver.observe(document.querySelector('.profile-stats'));
+const profileStats = document.querySelector('.profile-stats');
+if (profileStats) {
+    heroObserver.observe(profileStats);
+}
 
 // Add click animation to buttons
 document.querySelectorAll('.btn').forEach(button => {
@@ -266,6 +276,8 @@ style.textContent = `
         transform: scale(0);
         animation: ripple 0.6s linear;
         pointer-events: none;
+        width: 20px;
+        height: 20px;
     }
     
     @keyframes ripple {
@@ -303,22 +315,8 @@ function updateActiveNavLink() {
 
 window.addEventListener('scroll', updateActiveNavLink);
 
-// Contact form functionality (if needed in the future)
-function initContactForm() {
-    const contactForm = document.querySelector('#contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add form submission logic here
-            console.log('Form submitted');
-        });
-    }
-}
-
 // Initialize everything
 document.addEventListener('DOMContentLoaded', () => {
-    initContactForm();
-    
     // Add stagger animation to timeline items
     const timelineItems = document.querySelectorAll('.timeline-item');
     timelineItems.forEach((item, index) => {
@@ -335,6 +333,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const achievementCards = document.querySelectorAll('.achievement-card');
     achievementCards.forEach((card, index) => {
         card.style.animationDelay = `${index * 0.15}s`;
+    });
+
+    // Add stagger animation to skill categories
+    const skillCategories = document.querySelectorAll('.skill-category');
+    skillCategories.forEach((category, index) => {
+        category.style.animationDelay = `${index * 0.1}s`;
     });
 });
 
@@ -363,8 +367,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     contactElements.forEach(element => {
         element.addEventListener('click', (e) => {
-            e.preventDefault();
-            
             // Add visual feedback
             element.style.transform = 'scale(0.98)';
             element.style.transition = 'all 0.1s ease';
@@ -395,4 +397,69 @@ document.addEventListener('DOMContentLoaded', () => {
             element.setAttribute('aria-label', 'Make phone call');
         }
     });
+});
+
+// Enhanced scroll animations
+const enhancedObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Apply enhanced animations to all glow cards
+document.querySelectorAll('.glow-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    enhancedObserver.observe(card);
+});
+
+// Scroll to top functionality
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Add scroll to top button (optional)
+const scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+scrollToTopBtn.className = 'scroll-to-top';
+scrollToTopBtn.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #3b82f6, #06b6d4);
+    color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+`;
+
+scrollToTopBtn.addEventListener('click', scrollToTop);
+document.body.appendChild(scrollToTopBtn);
+
+// Show/hide scroll to top button
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.style.opacity = '1';
+        scrollToTopBtn.style.visibility = 'visible';
+    } else {
+        scrollToTopBtn.style.opacity = '0';
+        scrollToTopBtn.style.visibility = 'hidden';
+    }
 });
