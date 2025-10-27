@@ -1970,6 +1970,59 @@ section {
     color: white;
 }
 
+/* Mobile Optimizations for Background Animations */
+@media (max-width: 768px) {
+    .about::before,
+    .skills::before,
+    .experience::before,
+    .achievements::before,
+    .contact::before {
+        opacity: 0.3;
+        animation-duration: 25s;
+    }
+    
+    .hero::before {
+        opacity: 0.4;
+        width: 300px;
+        height: 300px;
+    }
+    
+    .floating-element {
+        animation-duration: 10s;
+    }
+    
+    .profile-placeholder::before,
+    .profile-placeholder::after {
+        opacity: 0.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .about::before,
+    .skills::before,
+    .experience::before,
+    .achievements::before,
+    .contact::before {
+        opacity: 0.2;
+        animation-duration: 30s;
+    }
+    
+    .floating-element {
+        animation-duration: 12s;
+    }
+    
+    .hero::before {
+        width: 250px;
+        height: 250px;
+        opacity: 0.3;
+    }
+    
+    .profile-placeholder::before,
+    .profile-placeholder::after {
+        opacity: 0.4;
+    }
+}
+
 /* ===== PRINT STYLES ===== */
 @media print {
     .navbar,
