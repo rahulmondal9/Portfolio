@@ -3,39 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rahul Mondal - Data Analyst Portfolio showcasing skills in Python, SQL, Machine Learning, and Data Visualization">
+    <meta name="theme-color" content="#3b82f6">
     <title>Rahul Mondal - Data Analyst Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader-container">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-dot" id="cursorDot"></div>
+
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <div class="mesh-gradient"></div>
+        <canvas id="particleCanvas"></canvas>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-text">RM</span>
+                <span class="logo-text" data-testid="logo">RM</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#achievements" class="nav-link">Achievements</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#home" class="nav-link" role="menuitem" data-testid="nav-home">Home</a></li>
+                <li role="none"><a href="#about" class="nav-link" role="menuitem" data-testid="nav-about">About</a></li>
+                <li role="none"><a href="#skills" class="nav-link" role="menuitem" data-testid="nav-skills">Skills</a></li>
+                <li role="none"><a href="#experience" class="nav-link" role="menuitem" data-testid="nav-experience">Experience</a></li>
+                <li role="none"><a href="#education" class="nav-link" role="menuitem" data-testid="nav-education">Education</a></li>
+                <li role="none"><a href="#achievements" class="nav-link" role="menuitem" data-testid="nav-achievements">Achievements</a></li>
+                <li role="none"><a href="#contact" class="nav-link" role="menuitem" data-testid="nav-contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" data-testid="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" data-testid="hamburger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="floating-elements">
+        <div class="floating-elements" aria-hidden="true">
             <div class="floating-element" data-speed="2">
                 <i class="fas fa-chart-line"></i>
             </div>
@@ -48,14 +72,17 @@
             <div class="floating-element" data-speed="5">
                 <i class="fas fa-brain"></i>
             </div>
+            <div class="floating-element" data-speed="3.5">
+                <i class="fas fa-chart-pie"></i>
+            </div>
         </div>
         <div class="hero-content">
-            <div class="hero-text">
+            <div class="hero-text" data-testid="hero-text">
                 <h1 class="hero-title">
                     <span class="gradient-text">RAHUL MONDAL</span>
                 </h1>
                 <h2 class="hero-subtitle">
-                    <span class="typing-text"></span>
+                    <span class="typing-text" data-testid="typing-text"></span>
                     <span class="cursor">|</span>
                 </h2>
                 <p class="hero-description">
@@ -63,36 +90,36 @@
                     machine learning, and stunning visualizations.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
+                    <a href="#contact" class="btn btn-primary" data-testid="get-in-touch-btn">
                         <i class="fas fa-envelope"></i>
                         Get In Touch
                     </a>
-                    <a href="#about" class="btn btn-secondary">
+                    <a href="#about" class="btn btn-secondary" data-testid="learn-more-btn">
                         <i class="fas fa-user"></i>
                         Learn More
                     </a>
                 </div>
                 <div class="resume-button">
-                    <a href="Certificates/RahulMondal_CV.pdf" target="_blank" class="btn btn-primary">
+                    <a href="Certificates/RahulMondal_CV.pdf" target="_blank" class="btn btn-accent" data-testid="resume-btn">
                         <i class="fas fa-file-alt"></i> Resume
                     </a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="profile-card glow-card">
+                <div class="profile-card glow-card-3d" data-tilt data-testid="profile-card">
                     <div class="profile-placeholder">
-                        <img src="IMG-20250627-WA0004[1].jpg" alt="Profile Picture" class="profile-pic">
+                        <img src="IMG-20250627-WA0004[1].jpg" alt="Rahul Mondal - Data Analyst" class="profile-pic" loading="eager">
                     </div>
                     <div class="profile-stats">
-                        <div class="stat">
+                        <div class="stat" data-tilt-child data-testid="stat-internships">
                             <span class="stat-number">2+</span>
                             <span class="stat-label">Internships</span>
                         </div>
-                        <div class="stat">
+                        <div class="stat" data-tilt-child data-testid="stat-skills">
                             <span class="stat-number">8+</span>
                             <span class="stat-label">Skills</span>
                         </div>
-                        <div class="stat">
+                        <div class="stat" data-tilt-child data-testid="stat-degree">
                             <span class="stat-number">B.Tech</span>
                             <span class="stat-label">Data Science</span>
                         </div>
@@ -100,7 +127,7 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" aria-hidden="true">
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
@@ -109,16 +136,16 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title" data-testid="about-title">About Me</h2>
                 <div class="section-line"></div>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <div class="glow-card about-main-card">
+                    <div class="glow-card-3d about-main-card" data-tilt data-testid="about-description">
                         <p class="about-description">
                             Focused on data analysis, visualization, and statistics, with hands-on work in tools like Python,
                             SQL, Excel, Power BI, and Tableau. Able to handle complex datasets, uncover patterns, and turn
-                            raw data into meaningful insights.Comfortable working across data pipelines—from cleaning 
+                            raw data into meaningful insights. Comfortable working across data pipelines—from cleaning 
                             and analysis to visual storytelling.
                         </p>
                         <p class="about-description">
@@ -128,7 +155,7 @@
                         </p>
                     </div>
                     <div class="about-details">
-                        <div class="detail-item location-item glow-card" onclick="openGoogleMaps()">
+                        <div class="detail-item location-item glow-card-3d" data-tilt onclick="openGoogleMaps()" data-testid="location-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Garhbeta, West Medinipur, West Bengal</span>
                             <div class="location-tooltip">
@@ -136,7 +163,7 @@
                                 <span>Click to open in Google Maps</span>
                             </div>
                         </div>
-                        <div class="detail-item email-item glow-card" onclick="openEmail()">
+                        <div class="detail-item email-item glow-card-3d" data-tilt onclick="openEmail()" data-testid="email-item">
                             <i class="fas fa-envelope"></i>
                             <span>rahul425wy@gmail.com</span>
                             <div class="contact-tooltip">
@@ -144,7 +171,7 @@
                                 <span>Click to send email</span>
                             </div>
                         </div>
-                        <div class="detail-item phone-item glow-card" onclick="openPhone()">
+                        <div class="detail-item phone-item glow-card-3d" data-tilt onclick="openPhone()" data-testid="phone-item">
                             <i class="fas fa-phone"></i>
                             <span>+91 8768963374</span>
                             <div class="contact-tooltip">
@@ -154,7 +181,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-languages glow-card">
+                <div class="about-languages glow-card-3d" data-tilt data-testid="languages-card">
                     <h3>Languages</h3>
                     <div class="language-list">
                         <div class="language-item">
@@ -179,11 +206,11 @@
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Skills & Technologies</h2>
+                <h2 class="section-title" data-testid="skills-title">Skills & Technologies</h2>
                 <div class="section-line"></div>
             </div>
             <div class="skills-grid">
-                <div class="skill-category glow-card">
+                <div class="skill-category glow-card-3d" data-tilt data-testid="programming-skills">
                     <div class="skill-icon">
                         <i class="fas fa-code"></i>
                     </div>
@@ -204,7 +231,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category glow-card">
+                <div class="skill-category glow-card-3d" data-tilt data-testid="analysis-skills">
                     <div class="skill-icon">
                         <i class="fas fa-database"></i>
                     </div>
@@ -225,7 +252,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category glow-card">
+                <div class="skill-category glow-card-3d" data-tilt data-testid="visualization-skills">
                     <div class="skill-icon">
                         <i class="fas fa-chart-bar"></i>
                     </div>
@@ -253,13 +280,13 @@
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Professional Experience</h2>
+                <h2 class="section-title" data-testid="experience-title">Professional Experience</h2>
                 <div class="section-line"></div>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
-                    <div class="timeline-content glow-card">
+                    <div class="timeline-content glow-card-3d" data-tilt data-testid="experience-zidio">
                         <div class="timeline-header">
                             <h3>Data Science & Analytics Intern</h3>
                             <div class="timeline-meta">
@@ -280,10 +307,10 @@
                             <span class="tag">Machine Learning</span>
                         </div>
                         <div class="certificate-buttons">
-                            <a href="Certificates/Certificate.pdf" target="_blank" class="btn btn-secondary">
+                            <a href="Certificates/Certificate.pdf" target="_blank" class="btn btn-secondary" data-testid="zidio-certificate">
                                 <i class="fas fa-file-pdf"></i> Certificate
                             </a>
-                            <a href="Certificates/Tranning_Certificate.pdf" target="_blank" class="btn btn-secondary">
+                            <a href="Certificates/Tranning_Certificate.pdf" target="_blank" class="btn btn-secondary" data-testid="zidio-training">
                                 <i class="fas fa-file-pdf"></i> Training Certificate
                             </a>
                         </div>
@@ -292,7 +319,7 @@
 
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
-                    <div class="timeline-content glow-card">
+                    <div class="timeline-content glow-card-3d" data-tilt data-testid="experience-next24tech">
                         <div class="timeline-header">
                             <h3>Technology & Services Intern</h3>
                             <div class="timeline-meta">
@@ -313,15 +340,16 @@
                             <span class="tag">Computer Vision</span>
                         </div>
                         <div class="certificate-buttons">
-                            <a href="Certificates/Next24Tech.jpg" target="_blank" class="btn btn-secondary">
+                            <a href="Certificates/Next24Tech.jpg" target="_blank" class="btn btn-secondary" data-testid="next24tech-certificate">
                                 <i class="fas fa-file-pdf"></i> Certificate
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
-                    <div class="timeline-content glow-card">
+                    <div class="timeline-content glow-card-3d" data-tilt data-testid="experience-codsoft">
                         <div class="timeline-header">
                             <h3>Machine Learning Intern</h3>
                             <div class="timeline-meta">
@@ -342,13 +370,12 @@
                             <span class="tag">Problem Solving</span>
                         </div>
                         <div class="certificate-buttons">
-                            <a href="Certificates/CODSOFT.pdf" target="_blank" class="btn btn-secondary">
+                            <a href="Certificates/CODSOFT.pdf" target="_blank" class="btn btn-secondary" data-testid="codsoft-certificate">
                                 <i class="fas fa-file-pdf"></i> Certificate
                             </a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -357,11 +384,11 @@
     <section id="education" class="education">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-title" data-testid="education-title">Education</h2>
                 <div class="section-line"></div>
             </div>
             <div class="education-grid">
-                <div class="education-card glow-card highlighted-card">
+                <div class="education-card glow-card-3d highlighted-card" data-tilt data-testid="education-btech">
                     <div class="education-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
@@ -373,25 +400,24 @@
                     </div>
                 </div>
 
-                <div class="education-card glow-card">
+                <div class="education-card glow-card-3d" data-tilt data-testid="education-hs">
                     <div class="education-icon">
                         <i class="fas fa-school"></i>
                     </div>
                     <div class="education-content">
                         <h3>Higher Secondary Education</h3>
                         <h4>Baital Gopeswar Pal Vidyapith (HS)</h4>
-                        <p class="education-university">West Bengal Council of Higher Secondary Education</p>
+                        <p class="education-university">West Bengal Board of Higher Secondary Education</p>
                         <span class="education-year">2020 | 86%</span>
                     </div>
                     <div class="education-links">
-                        <a href="Certificates/HS_Result.pdf" target="_blank" class="btn btn-secondary">
+                        <a href="Certificates/HS_Result.pdf" target="_blank" class="btn btn-secondary" data-testid="hs-result">
                             <i class="fas fa-file-pdf"></i> HS Result
                         </a>
                     </div>
-
                 </div>
 
-                <div class="education-card glow-card">
+                <div class="education-card glow-card-3d" data-tilt data-testid="education-secondary">
                     <div class="education-icon">
                         <i class="fas fa-school"></i>
                     </div>
@@ -402,7 +428,7 @@
                         <span class="education-year">2018 | 80.85%</span>
                     </div>
                     <div class="education-links">
-                        <a href="Certificates/Madhyamik_Result.pdf" target="_blank" class="btn btn-secondary">
+                        <a href="Certificates/Madhyamik_Result.pdf" target="_blank" class="btn btn-secondary" data-testid="secondary-result">
                             <i class="fas fa-file-pdf"></i> Secondary Result
                         </a>
                     </div>
@@ -416,12 +442,12 @@
         <div class="achievements-bg"></div>
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Achievements & Certifications</h2>
+                <h2 class="section-title" data-testid="achievements-title">Achievements & Certifications</h2>
                 <div class="section-line"></div>
                 <p class="section-subtitle">Recognition and certifications that showcase my commitment to excellence</p>
             </div>
             <div class="achievements-grid">
-                <div class="achievement-card glow-card highlighted-card">
+                <div class="achievement-card glow-card-3d highlighted-card" data-tilt data-testid="achievement-iit">
                     <div class="achievement-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
@@ -433,18 +459,17 @@
                             demonstrating proficiency in academic and professional writing standards.
                         </p>
                         <div class="achievement-details">
-                            <!-- <span class="achievement-badge">Certificate</span> -->
                             <span class="achievement-year">Jan - Feb 2023</span>
                         </div>
                         <div class="certificate-view">
-                            <a href="Certificates/NPTEL_Effective_Writing.png" target="_blank" class="btn btn-primary certificate-btn">
+                            <a href="Certificates/NPTEL_Effective_Writing.png" target="_blank" class="btn btn-primary certificate-btn" data-testid="iit-certificate">
                                 <i class="fas fa-file-pdf"></i> View Certificate
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="achievement-card glow-card">
+                <div class="achievement-card glow-card-3d" data-tilt data-testid="achievement-excellence">
                     <div class="achievement-icon">
                         <i class="fas fa-medal"></i>
                     </div>
@@ -462,7 +487,7 @@
                     </div>
                 </div>
 
-                <div class="achievement-card glow-card">
+                <div class="achievement-card glow-card-3d" data-tilt data-testid="achievement-internship">
                     <div class="achievement-icon">
                         <i class="fas fa-star"></i>
                     </div>
@@ -487,13 +512,13 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Let's Connect</h2>
+                <h2 class="section-title" data-testid="contact-title">Let's Connect</h2>
                 <div class="section-line"></div>
                 <p class="section-subtitle">Ready to turn data into insights? Let's discuss how we can work together.</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item glow-card email-contact" onclick="openEmail()">
+                    <div class="contact-item glow-card-3d email-contact" data-tilt onclick="openEmail()" data-testid="contact-email">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
@@ -506,7 +531,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="contact-item glow-card phone-contact" onclick="openPhone()">
+                    <div class="contact-item glow-card-3d phone-contact" data-tilt onclick="openPhone()" data-testid="contact-phone">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
@@ -519,7 +544,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="contact-item glow-card location-contact" onclick="openGoogleMaps()">
+                    <div class="contact-item glow-card-3d location-contact" data-tilt onclick="openGoogleMaps()" data-testid="contact-location">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
@@ -533,24 +558,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-cta glow-card">
+                <div class="contact-cta glow-card-3d" data-tilt data-testid="contact-cta">
                     <h3>Ready to collaborate?</h3>
                     <p>I'm always open to discussing new opportunities in data analysis and machine learning.</p>
                     <div class="contact-buttons">
-                        <a href="mailto:rahul425wy@gmail.com" class="btn btn-primary">
+                        <a href="mailto:rahul425wy@gmail.com" class="btn btn-primary" data-testid="send-email-btn">
                             <i class="fas fa-envelope"></i>
                             Send Email
                         </a>
-                        <a href="tel:+918768963374" class="btn btn-secondary">
+                        <a href="tel:+918768963374" class="btn btn-secondary" data-testid="call-btn">
                             <i class="fas fa-phone"></i>
                             Call Now
                         </a>
                     </div>
                     <div class="social-links">
-                        <a href="https://github.com/rahulmondal9" target="_blank" class="social-icon github">
+                        <a href="https://github.com/rahulmondal9" target="_blank" class="social-icon github" data-testid="github-link">
                              <i class="fab fa-github"></i> GitHub
                         </a>
-                        <a href="https://www.linkedin.com/in/rahul-mondal-038130274" target="_blank" class="social-icon linkedin">
+                        <a href="https://www.linkedin.com/in/rahul-mondal-038130274" target="_blank" class="social-icon linkedin" data-testid="linkedin-link">
                              <i class="fab fa-linkedin"></i> LinkedIn
                         </a>
                     </div>
@@ -565,19 +590,23 @@
             <div class="footer-content">
                 <p>&copy; 2024 Rahul Mondal. Crafted with passion for data and design.</p>
                 <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#education">Education</a>
-                    <a href="#achievements">Achievements</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#home" data-testid="footer-home">Home</a>
+                    <a href="#about" data-testid="footer-about">About</a>
+                    <a href="#skills" data-testid="footer-skills">Skills</a>
+                    <a href="#experience" data-testid="footer-experience">Experience</a>
+                    <a href="#education" data-testid="footer-education">Education</a>
+                    <a href="#achievements" data-testid="footer-achievements">Achievements</a>
+                    <a href="#contact" data-testid="footer-contact">Contact</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top" data-testid="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <script src="script.js"></script>
 </body>
 </html>
-
