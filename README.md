@@ -1,6 +1,6 @@
 # 🌐 Personal Portfolio – Rahul Mondal
 
-**Live Site:** [https://rahulmondal9.github.io/portfolio](https://rahulmondal9.github.io/portfolio)
+**Live Site:** [https://rahulmondal9.netlify.app/](https://rahulmondal9.netlify.app/)
 
 [![GitHub](https://img.shields.io/badge/GitHub-rahulmondal9-black?logo=github)](https://github.com/rahulmondal9)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-rahul--mondal-blue?logo=linkedin)](https://www.linkedin.com/in/rahul-mondal-038130274)
@@ -32,7 +32,7 @@ Modern, responsive portfolio website showcasing my journey as a **Data Analyst &
 |-------------|-------------|----------|
 | React 18.2.0 | CSS3 | Git & GitHub |
 | JavaScript ES6+ | Flexbox/Grid | React Scripts |
-| HTML5 | Animations | GitHub Pages |
+| HTML5 | Animations | Netlify |
 
 ---
 
@@ -56,12 +56,14 @@ npm start
 
 ## 📦 Deployment
 
-```bash
-# Deploy to GitHub Pages
-npm run deploy
-```
+**Deployed on Netlify:** [https://rahulmondal9.netlify.app/](https://rahulmondal9.netlify.app/)
 
-Automatically deploys to: `https://rahulmondal9.github.io/portfolio`
+### Deploy to Netlify:
+1. Push code to GitHub
+2. Connect repository to Netlify
+3. Build command: `npm run build`
+4. Publish directory: `build`
+5. Auto-deploy on push
 
 ---
 
