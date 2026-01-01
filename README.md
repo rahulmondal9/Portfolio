@@ -1,96 +1,119 @@
-<h1 align="center">🌐 Personal Portfolio – Rahul Mondal</h1>
+# 🌐 Personal Portfolio – Rahul Mondal
 
-<p align="center">
-  � <b>GitHub:</b> <a href="https://github.com/rahulmondal9" target="_blank">https://github.com/rahulmondal9</a><br>
-  � <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/rahul-mondal-038130274" target="_blank">https://www.linkedin.com/in/rahul-mondal-038130274</a>
-</p>
+**Live Site:** [https://rahulmondal9.github.io/portfolio](https://rahulmondal9.github.io/portfolio)
 
-<hr>
+[![GitHub](https://img.shields.io/badge/GitHub-rahulmondal9-black?logo=github)](https://github.com/rahulmondal9)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-rahul--mondal-blue?logo=linkedin)](https://www.linkedin.com/in/rahul-mondal-038130274)
 
-<h2>📖 About the Project</h2>
-<p>
-  This is my <b>personal portfolio website</b> built using <b>React, HTML, CSS, and JavaScript</b>.<br>
-  It showcases my <b>skills, projects, education, experience, and certifications</b> with a modern and responsive design.<br>
-  The goal is to create a clean and engaging online presence as a <b>Data Analyst & Python Developer</b>.
-</p>
+---
 
-<hr>
+## 📖 About
 
-<h2>🖥️ Features</h2>
-<ul>
-  <li>⭐ Fully responsive layout (mobile-friendly)</li>
-  <li>⭐ Smooth scrolling and interactive animations</li>
-  <li>⭐ Dark/Light mode toggle</li>
-  <li>⭐ Dedicated sections for About, Projects, Skills, Experience, and Contact</li>
-  <li>⭐ AI Tools showcase section</li>
-  <li>⭐ Interactive chatbot component</li>
-  <li>⭐ Optimized performance and fast loading</li>
-</ul>
+Modern, responsive portfolio website showcasing my journey as a **Data Analyst & Python Developer**. Built with React and featuring interactive components, smooth animations, and a clean design.
 
-<hr>
+---
 
-<h2>🧰 Tech Stack</h2>
-<table>
-  <tr>
-    <th>Category</th>
-    <th>Technologies Used</th>
-  </tr>
-  <tr>
-    <td><b>Frontend</b></td>
-    <td>React 18.2.0, HTML5, CSS3, JavaScript</td>
-  </tr>
-  <tr>
-    <td><b>Styling</b></td>
-    <td>Flexbox, CSS Grid, Animations</td>
-  </tr>
-  <tr>
-    <td><b>Build Tool</b></td>
-    <td>React Scripts 5.0.1</td>
-  </tr>
-  <tr>
-    <td><b>Version Control</b></td>
-    <td>Git & GitHub</td>
-  </tr>
-</table>
+## ✨ Features
 
-<hr>
+- 📱 **Fully Responsive** - Works on all devices
+- 🌙 **Dark/Light Mode** - Toggle theme preference
+- ⚡ **Fast Loading** - Optimized performance
+- 🎨 **Interactive UI** - Smooth animations and transitions
+- 🤖 **AI Tools Showcase** - Display of AI technologies used
+- 💬 **Chatbot Component** - Interactive user engagement
+- 📊 **Project Gallery** - Detailed project showcases
+- 📜 **Certificate Display** - Professional certifications
 
-<h2>🛠️ Installation & Setup</h2>
+---
+
+## 🛠️ Tech Stack
+
+| **Frontend** | **Styling** | **Tools** |
+|-------------|-------------|----------|
+| React 18.2.0 | CSS3 | Git & GitHub |
+| JavaScript ES6+ | Flexbox/Grid | React Scripts |
+| HTML5 | Animations | GitHub Pages |
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/rahulmondal9/portfolio.git
 
-# Navigate into the folder
-cd portfolio
-
 # Install dependencies
+cd portfolio
 npm install
 
-# Start the development server
+# Start development server
 npm start
 ```
 
-The application will open at `http://localhost:3000`
+**Local URL:** `http://localhost:3000`
 
-<hr>
+---
 
-<h2>📬 Contact</h2>
-<ul>
-  <li>📧 <b>Email:</b> rahul425wy@gmail.com</li>
-  <li>📱 <b>Phone:</b> +91 8768963374</li>
-  <li>💼 <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/rahul-mondal-038130274" target="_blank">https://www.linkedin.com/in/rahul-mondal-038130274</a></li>
-  <li>🐙 <b>GitHub:</b> <a href="https://github.com/rahulmondal9" target="_blank">https://github.com/rahulmondal9</a></li>
-  <li>📍 <b>Location:</b> Garhbeta, West Medinipur, West Bengal, India</li>
-</ul>
+## 📦 Deployment
 
-<hr>
+```bash
+# Deploy to GitHub Pages
+npm run deploy
+```
 
-<h2>📜 License</h2>
-<p>This project is <b>open-source</b> and available under the <a href="LICENSE">MIT License</a>.</p>
+Automatically deploys to: `https://rahulmondal9.github.io/portfolio`
 
-<hr>
+---
 
-<p align="center">
-  <b>"Transforming raw data into actionable insights through advanced analytics, machine learning, and stunning visualizations."</b>
-</p>
+## 📁 Project Structure
+
+```
+portfolio/
+├── public/
+│   ├── images/
+│   │   └── profileimage/
+│   └── certificates/
+├── src/
+│   ├── components/
+│   ├── data/
+│   └── styles/
+└── package.json
+```
+
+---
+
+## 🎯 Sections
+
+- **Hero** - Introduction and profile
+- **About** - Personal background
+- **Skills** - Technical expertise
+- **Projects** - Portfolio showcase
+- **Experience** - Professional journey
+- **Achievements** - Certifications and awards
+- **Contact** - Get in touch
+
+---
+
+## 📞 Contact
+
+- 📧 **Email:** rahul425wy@gmail.com
+- 📱 **Phone:** +91 8768963374
+- 🌍 **Location:** West Bengal, India
+- 💼 **LinkedIn:** [rahul-mondal-038130274](https://www.linkedin.com/in/rahul-mondal-038130274)
+- 🐙 **GitHub:** [rahulmondal9](https://github.com/rahulmondal9)
+
+---
+
+## 📄 License
+
+MIT License - feel free to use this project for your own portfolio!
+
+---
+
+<div align="center">
+
+**"Transforming raw data into actionable insights through advanced analytics and machine learning."**
+
+⭐ Star this repo if you found it helpful!
+
+</div>
