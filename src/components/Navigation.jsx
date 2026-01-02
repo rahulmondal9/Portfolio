@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const sections = [
     { id: 'hero', label: 'Home' },
@@ -56,7 +57,14 @@ const Navigation = () => {
         top: offsetPosition,
         behavior: 'smooth'
       });
+
+      // Close mobile menu after clicking a link
+      setIsMobileMenuOpen(false);
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -65,7 +73,19 @@ const Navigation = () => {
         <div className="nav-logo" onClick={() => scrollToSection('hero')}>
           <span>Rahul Mondal</span>
         </div>
-        <ul className="nav-menu">
+
+        {/* Hamburger Menu Button */}
+        <button
+          className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul className={`nav-menu ${isMobileMenuOpen ? 'mobile-active' : ''}`}>
           {sections.map(section => (
             <li key={section.id}>
               <button
@@ -83,4 +103,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
