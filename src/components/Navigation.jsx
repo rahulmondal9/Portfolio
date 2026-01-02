@@ -1,55 +1,126 @@
-import React from 'react';
-import { portfolioData } from '../data/portfolioData';
-import SectionTitle from './SectionTitle';
+import React, { useState, useEffect } from 'react';
 
-const Experience = () => {
-  const { experience } = portfolioData;
+const Navigation = () => {
+  const [activeSection, setActiveSection] = useState('hero');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const sections = [
+    { id: 'hero', label: 'Home', icon: 'fas fa-home' },
+    { id: 'about', label: 'About', icon: 'fas fa-user' },
+    { id: 'ai-tools', label: 'AI Tools', icon: 'fas fa-robot' },
+    { id: 'projects', label: 'Projects', icon: 'fas fa-folder-open' },
+    { id: 'achievements', label: 'Achievements', icon: 'fas fa-trophy' },
+    { id: 'experience', label: 'Experience', icon: 'fas fa-briefcase' },
+    { id: 'contact', label: 'Contact', icon: 'fas fa-envelope' }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+
+      // Find active section
+      const scrollPosition = window.scrollY + 150;
+      const current = sections
+        .map(section => {
+          const element = document.getElementById(section.id);
+          if (element) {
+            return {
+              id: section.id,
+              top: element.offsetTop,
+              bottom: element.offsetTop + element.offsetHeight
+            };
+          }
+          return null;
+        })
+        .filter(Boolean)
+        .find(section => scrollPosition >= section.top && scrollPosition < section.bottom);
+
+      if (current) {
+        setActiveSection(current.id);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Account for sticky nav height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      // Close mobile menu after clicking a link
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
-    <section id="experience" className="experience">
-      <div className="container">
-        <SectionTitle title="Experiences" />
-        <div className="timeline">
-          {experience.map((exp, index) => (
-            <div key={index} className="timeline-item">
-              <div className="timeline-content">
-                <h3>{exp.title}</h3>
-                <span className="date">{exp.company} — {exp.location} ({exp.period})</span>
-                <p>{exp.description}</p>
+    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="nav-container">
+        <div className="nav-logo" onClick={() => scrollToSection('hero')}>
+          <span>Rahul Mondal</span>
+        </div>
 
-                {/* Technology Tags */}
-                {exp.tags && exp.tags.length > 0 && (
-                  <div className="experience-tags">
-                    {exp.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="experience-tag">{tag}</span>
-                    ))}
-                  </div>
-                )}
+        {/* Hamburger Menu Button */}
+        <button
+          className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-                {/* Certificate Buttons */}
-                {exp.certificates && exp.certificates.length > 0 && (
-                  <div className="certificate-buttons">
-                    {exp.certificates.map((cert, certIndex) => (
-                      <button
-                        key={certIndex}
-                        className="certificate-btn"
-                        onClick={() => {
-                          window.open(cert.url, '_blank', 'noopener,noreferrer');
-                        }}
-                      >
-                        <i className="fas fa-file-certificate"></i>
-                        <span>{cert.name}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
+        <ul className={`nav-menu ${isMobileMenuOpen ? 'mobile-active' : ''}`}>
+          {/* Profile Section */}
+          <div className="nav-profile-section">
+            <div className="nav-profile-image-container">
+              <img
+                src="/images/profileimage/profile-pic.jpeg"
+                alt="Rahul Mondal"
+                className="nav-profile-image"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div className="nav-profile-fallback" style={{ display: 'none' }}>
+                <i className="fas fa-user"></i>
               </div>
             </div>
+            <h3 className="nav-profile-name">Rahul Mondal</h3>
+            <p className="nav-profile-role">Data Analyst</p>
+          </div>
+
+          {sections.map(section => (
+            <li key={section.id}>
+              <button
+                className={`nav-link ${activeSection === section.id ? 'active' : ''}`}
+                onClick={() => scrollToSection(section.id)}
+              >
+                <i className={section.icon}></i>
+                <span>{section.label}</span>
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-    </section>
+    </nav>
   );
 };
 
-export default Experience;
+export default Navigation;
