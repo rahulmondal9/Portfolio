@@ -168,7 +168,7 @@ export const portfolioData = {
       icon: "📊",
       type: "PROFESSIONAL",
       date: "January 2026",
-      certificateUrl: "/certificates/TATA Data Visualisation.pdf"
+      certificateUrl: "/certificates/TATA_Data_Visualisation.pdf"
     }
   ],
 
@@ -191,3 +191,4 @@ export const portfolioData = {
     { name: "Deepseek", color: "#d078edff", icon: "🔬" }
   ]
 };
+
