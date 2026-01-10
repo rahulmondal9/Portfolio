@@ -159,6 +159,16 @@ export const portfolioData = {
       type: "PROFESSIONAL",
       date: "2024",
       certificateUrl: null
+    },
+    {
+      id: 4,
+      title: "Tata Data Visualisation Job Simulation",
+      subtitle: "Tata Consultancy Services - Forage",
+      description: "• Completed a simulation involving creating data visualizations for Tata Consultancy Services\n• Prepared questions for a meeting with client senior leadership\n• Created visuals for data analysis to help executives with effective decision making",
+      icon: "📊",
+      type: "PROFESSIONAL",
+      date: "January 2026",
+      certificateUrl: "/certificates/TATA Data Visualisation.pdf"
     }
   ],
 
