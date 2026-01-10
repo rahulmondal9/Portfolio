@@ -943,6 +943,8 @@ section {
   line-height: 1.6;
   margin-bottom: 20px;
   opacity: 0.8;
+  white-space: pre-line;
+  text-align: left;
 }
 
 .achievement-meta {
