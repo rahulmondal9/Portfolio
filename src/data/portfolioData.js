@@ -72,7 +72,7 @@ export const portfolioData = {
       description: "Built predictive models using statistical analysis and machine learning techniques. Focused on pattern recognition, data exploration, and generating actionable insights from complex datasets using Python and various ML libraries.",
       tags: ["Python", "Statistical Analysis", "Predictive Modeling", "Data Science"],
       status: "completed",
-      githubUrl: "https://github.com/rahulmondal9/LLM_Evaluation_Pipeline"
+      githubUrl: "https://github.com/rahulmondal9/Digit_Recognition"
     },
     {
       id: 5,
@@ -80,7 +80,7 @@ export const portfolioData = {
       description: "Developed comprehensive data pipelines covering data collection, cleaning, transformation, analysis, and visualization. Implemented automated workflows for efficient data processing and insights generation.",
       tags: ["Python", "Data Engineering", "ETL", "Automation", "Data Analysis"],
       status: "completed",
-      githubUrl: "https://github.com/rahulmondal9/Digit_Recognition"
+      githubUrl: "https://github.com/rahulmondal9/LLM_Evaluation_Pipeline"
     },
     {
       id: 6,
@@ -191,4 +191,5 @@ export const portfolioData = {
     { name: "Deepseek", color: "#d078edff", icon: "🔬" }
   ]
 };
+
 
