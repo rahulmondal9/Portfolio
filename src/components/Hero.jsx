@@ -48,7 +48,7 @@ const Hero = () => {
           {/* Resume Button */}
           <div className="resume-button-container">
             <a
-              href="/certificates/Rahul_Mondal_Resume.pdf"
+              href="/certificates/RAHULMONDAL.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="resume-button"
